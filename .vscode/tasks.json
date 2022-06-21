@@ -1,0 +1,49 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build lexer.cc",
+            "command": "g++",
+            "args": [
+                "-c",
+                "${workspaceRoot}/lexer.cc"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "detail": "First task to run"
+        },
+        {
+            "type": "shell",
+            "label": "Link Lexer and buffer objects",
+            "command": "g++",
+            "args": [
+                "${workspaceRoot}/inputbuf.o",
+                "${workspaceRoot}/lexer.o",
+                "-o",
+                "${workspaceRoot}/a.out"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "dependsOn": "Build lexer.cc",
+            "detail": "Link files to create a.out"
+        },
+        
+    ],
+    "version": "2.0.0"
+}
